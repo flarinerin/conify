@@ -35,9 +35,9 @@ end
 
 gem 'squeel'
 gem 'factory_girl_rails'
-gem 'mailcatcher'
 gem 'puma'
-gem 'ember-cli-rails', '~> 0.7.1'
+gem 'react_on_rails'
+
 group :development, :test do
   gem 'wildland_dev_tools', '>=0.1.0', git: 'git+ssh://git@github.com/wildland/wildland_dev_tools.git'
   gem 'annotate'
@@ -50,3 +50,4 @@ end
 
 gem 'api_me'
 gem 'token_authenticate_me', '>=0.4.2'
+gem 'active_model_serializers', '~> 0.8.0'

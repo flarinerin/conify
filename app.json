@@ -21,8 +21,7 @@
     },
     "NPM_CONFIG_PRODUCTION": {
       "required": true
-    },
-    "WILDLAND_STATUS_BAR": "development"
+    }
   },
   "addons": [
     "heroku-postgresql",
