@@ -1,0 +1,12 @@
+AllCops:
+  Exclude:
+    - 'app-ember/**/*'
+    - 'bin/**/*'
+    - 'config/routes.rb'
+    - 'db/**/*'
+    - 'Gemfile*'
+    - 'tmp/**/*'
+LineLength:
+  Max: 100
+Documentation:
+  Enabled: false

@@ -1,0 +1,21 @@
+<%= render_ember_app ember_app do |head, body| %>
+  <% head.append do %>
+    <%= csrf_meta_tags %>
+  <% end %>
+  <% body.append do %>
+    <% if Rails.application.secrets.wildland_server_status == 'development' %>
+      <div id="pipeline-flag">
+        <div class="development-flag">
+          <p>Development</p>
+        </div>
+      </div>
+    <% end %>
+    <% if Rails.application.secrets.wildland_server_status == 'staging' %>
+      <div id="pipeline-flag">
+        <div class="staging-flag">
+          <p>Staging</p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

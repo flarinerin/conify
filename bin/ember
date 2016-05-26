@@ -1,0 +1,5 @@
+#!/bin/sh
+if [ ${RACK_ENV:=development} == "development" ]; then
+  cd app-ember
+  ember server --proxy http://localhost:5000 --port 4200
+fi

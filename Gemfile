@@ -1,16 +1,11 @@
 source 'https://rubygems.org'
+gem 'dotenv-rails', groups: [:development, :test], require: 'dotenv/rails-now'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '~>4.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -33,3 +28,25 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
+
+group :production do
+  gem 'rails_12factor'
+end
+
+gem 'squeel'
+gem 'factory_girl_rails'
+gem 'mailcatcher'
+gem 'puma'
+gem 'ember-cli-rails', '~> 0.7.1'
+group :development, :test do
+  gem 'wildland_dev_tools', '>=0.1.0', git: 'git+ssh://git@github.com/wildland/wildland_dev_tools.git'
+  gem 'annotate'
+  gem 'brakeman'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'rspec-rails'
+  gem 'rubocop'
+end
+
+gem 'api_me'
+gem 'token_authenticate_me', '>=0.4.2'

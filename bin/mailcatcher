@@ -1,0 +1,4 @@
+#!/bin/sh
+if [ ${RACK_ENV:=development} == "development" ]; then
+  bundle exec mailcatcher -f
+fi
