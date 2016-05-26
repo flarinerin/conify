@@ -51,3 +51,5 @@ end
 gem 'api_me'
 gem 'token_authenticate_me', '>=0.4.2'
 gem 'active_model_serializers', '~> 0.8.0'
+
+gem 'therubyracer', platforms: :ruby
