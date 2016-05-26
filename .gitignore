@@ -1,1 +1,31 @@
+*.rbc
+capybara-*.html
+.rspec
+/log
+/tmp
+/db/*.sqlite3
+/public/system
+/coverage/
+/spec/tmp
+**.orig
+rerun.txt
+pickle-email-*.html
+.env
+.DS_Store
+*.swp
+
+## Environment normalisation:
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
 npm-debug.log
+/vendor/bundle
+# React on Rails
+npm-debug.log
+node_modules
+
+# Generated js bundles
+/app/assets/webpack/*
