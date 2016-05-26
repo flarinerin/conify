@@ -12,7 +12,9 @@ Repository for the conify project
 ### Getting started
 [Quick Start](https://github.com/wildland/guides#setting-up-your-development-enviroment) for getting development machine setup.
 
-1. Run `rake wildland:setup`
+1. Run `bundle install`
+2. Run `rake db:create`
+3. Run `rake db:migrate`
 
 ### Getting work done
 [Wildland guide](https://github.com/wildland/) for getting work done.
@@ -21,4 +23,3 @@ Repository for the conify project
 ### Enviroment varables
 - `SECRET_KEY_BASE`
 - `SKIP_EMBER=true`
-

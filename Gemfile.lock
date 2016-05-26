@@ -92,6 +92,7 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    libv8 (3.16.14.15)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -165,6 +166,7 @@ GEM
       foreman
       rails (>= 3.2)
       rainbow (~> 2.1)
+    ref (2.0.0)
     rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -205,6 +207,9 @@ GEM
       activerecord (>= 3.0)
       activesupport (>= 3.0)
       polyamorous (~> 1.1.0)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.5)
     token_authenticate_me (0.4.2)
@@ -244,9 +249,10 @@ DEPENDENCIES
   rubocop
   sdoc (~> 0.4.0)
   squeel
+  therubyracer
   token_authenticate_me (>= 0.4.2)
   web-console (~> 2.0)
   wildland_dev_tools (>= 0.1.0)!
 
 BUNDLED WITH
-   1.10.6
+   1.12.1
