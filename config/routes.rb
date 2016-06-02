@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'hello_world', to: 'hello_world#index'
   namespace :api do
     get :csrf, to: 'csrf#index'
     resource :session, only: [:create, :show, :destroy]
@@ -16,4 +15,6 @@ Rails.application.routes.draw do
       resources :users
     end
   end
+
+  get '(*path)', to: 'client_application#index'
 end

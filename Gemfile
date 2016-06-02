@@ -39,7 +39,7 @@ gem 'puma'
 gem 'react_on_rails'
 
 group :development, :test do
-  gem 'wildland_dev_tools', '>=0.1.0', git: 'git+ssh://git@github.com/wildland/wildland_dev_tools.git'
+  gem 'wildland_dev_tools', '>=0.1.0', github: 'wildland/wildland_dev_tools'
   gem 'annotate'
   gem 'brakeman'
   gem 'pry-rails'

@@ -1,5 +1,5 @@
 require 'token_authenticate_me/controllers/sessionable'
 
-class Api::SessionsController < BaseController
+class Api::SessionsController < BaseAuthenticatedController
   include TokenAuthenticateMe::Controllers::Sessionable
 end

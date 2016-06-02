@@ -4,12 +4,12 @@ const path = require('path');
 const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
 
-config = {
+const config = {
   entry: [
     'es5-shim/es5-shim',
     'es5-shim/es5-sham',
     'babel-polyfill',
-    './app/bundles/HelloWorld/startup/HelloWorldApp',
+    './app/bundles/ConifyClient/startup/App',
   ],
 
   output: {
