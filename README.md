@@ -17,7 +17,7 @@ Repository for the conify project
 3. Run `rake db:migrate`
 
 ### Getting work done
-[Wildland guide](https://github.com/wildland/) for getting work done.
+run `$ foreman start -f Procfile.dev` to start the development server and getting stuff and things done
 
 ## Production Requirements
 ### Enviroment varables

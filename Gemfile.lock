@@ -1,5 +1,5 @@
 GIT
-  remote: git+ssh://git@github.com/wildland/wildland_dev_tools.git
+  remote: git://github.com/wildland/wildland_dev_tools.git
   revision: 235d987ab4682fdcb48f290783da5a91b7a9bd32
   specs:
     wildland_dev_tools (0.5.0)
