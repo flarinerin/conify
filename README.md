@@ -12,8 +12,8 @@ Repository for the conify project
 ### Getting started
 [Quick Start](https://github.com/wildland/guides#setting-up-your-development-enviroment) for getting development machine setup.
 
-1. Run `bundle install && npm install`
-2. Run `rake wildland:db`
+1. Run `$ bundle install && npm install`
+2. Run `$ rake wildland:db`
 3. Run `$ foreman start -f Procfile.dev` to start the server
 
 ## Production Requirements
