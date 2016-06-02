@@ -12,12 +12,9 @@ Repository for the conify project
 ### Getting started
 [Quick Start](https://github.com/wildland/guides#setting-up-your-development-enviroment) for getting development machine setup.
 
-1. Run `bundle install`
-2. Run `rake db:create`
-3. Run `rake db:migrate`
-
-### Getting work done
-run `$ foreman start -f Procfile.dev` to start the development server and getting stuff and things done
+1. Run `$ bundle install && npm install`
+2. Run `$ rake wildland:db`
+3. Run `$ foreman start -f Procfile.dev` to start the server
 
 ## Production Requirements
 ### Enviroment varables
