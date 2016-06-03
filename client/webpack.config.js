@@ -6,6 +6,7 @@ const nodeEnv = devBuild ? 'development' : 'production';
 
 const config = {
   entry: [
+    'bootstrap-loader',
     'es5-shim/es5-shim',
     'es5-shim/es5-sham',
     'babel-polyfill',
