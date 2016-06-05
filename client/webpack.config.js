@@ -12,7 +12,12 @@ const config = {
     'babel-polyfill',
     './app/bundles/ConifyClient/startup/App',
   ],
-
+  resolve: {
+    //Allow files to be referenced relative ot the root directory of the bundle
+    fallback: [
+      path.join(__dirname,'app/bundles/ConifyClient'),
+    ],
+  },
   output: {
     filename: 'webpack-bundle.js',
     path: '../app/assets/webpack',
@@ -20,16 +25,16 @@ const config = {
 
   resolve: {
     extensions: ['', '.js', '.jsx'],
-    alias: {
-      react: path.resolve('./node_modules/react'),
-      'react-dom': path.resolve('./node_modules/react-dom'),
-    },
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(nodeEnv),
       },
+    }),
+    // Bootstrap 4 checks the window object for this library...
+    new webpack.ProvidePlugin({
+      "window.Tether": "tether",
     }),
   ],
   module: {
@@ -39,10 +44,20 @@ const config = {
         loader: 'imports?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
       },
       {
-        test: /\.jsx?$/, loader: 'babel-loader',
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
         exclude: /node_modules/,
       },
+      // Bootstrap 4
+      { test: /bootstrap[\/\\]dist[\/\\]js[\/\\]umd[\/\\]/, loader: 'imports?jQuery=jquery' },
     ],
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        loader: "eslint-loader",
+        exclude: /node_modules/,
+      }
+    ]
   },
 };
 
