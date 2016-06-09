@@ -8,7 +8,7 @@ class Main extends React.Component {
   render() {
     return (
       <div class="main">
-        {React.cloneElement(this.props.children, this.props)}
+        {this.props.children}
       </div>
     );
   }
