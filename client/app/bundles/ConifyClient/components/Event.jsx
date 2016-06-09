@@ -20,7 +20,7 @@ class Event extends React.Component {
         {/*[Title]  [Bookmark toggle]*/}
         <div className="row">
           <div className="col-xs-6">{this.props.title}</div>
-          <div className="col-xs-6" onClick={this.onBookmark} id="bookmark">{
+          <div className="col-xs-6" onClick={this.onBookmark}>{
             this.state.isBookmarked ? 
               <i  className="fa fa-bookmark">marked</i> :
               <i  className="fa fa-bookmark-0">unmarked</i>
