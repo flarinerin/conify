@@ -10,7 +10,7 @@ class Main extends React.Component {
     return (
       <div class="main">
         <NavBar />
-        {React.cloneElement(this.props.children, this.props)}
+        {this.props.children}
       </div>
     );
   }
