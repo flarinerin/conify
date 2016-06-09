@@ -8,9 +8,20 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div className="main">
-        <NavBar />
-        {this.props.children}
+      <div id="wrapper">
+        <div className="main">
+          <NavBar />
+          // Page Content
+          <div id="page-content-wrapper">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-lg-12">
+                  {this.props.children}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
