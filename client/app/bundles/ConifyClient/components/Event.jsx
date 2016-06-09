@@ -7,7 +7,7 @@ class Event extends React.Component {
 
   render() {
     return (
-      <div class="events">
+      <div className="events">
         This is where a single event will be.
       </div>
     );

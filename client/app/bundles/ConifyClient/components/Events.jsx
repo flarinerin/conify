@@ -7,7 +7,7 @@ class Events extends React.Component {
 
   render() {
     return (
-      <div class="events">
+      <div className="events">
         This is where the events will be.
         <button className="btn btn-default" >This is the default button</button>
         <div className="dropdown">

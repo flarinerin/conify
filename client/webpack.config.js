@@ -17,15 +17,13 @@ const config = {
     fallback: [
       path.join(__dirname,'app/bundles/ConifyClient'),
     ],
+    extensions: ['', '.js', '.jsx']
   },
   output: {
     filename: 'webpack-bundle.js',
     path: '../app/assets/webpack',
   },
 
-  resolve: {
-    extensions: ['', '.js', '.jsx'],
-  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
