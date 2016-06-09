@@ -3,13 +3,19 @@ import ReactOnRails from 'react-on-rails';
 import { Provider } from 'react-redux';
 
 /* Components */
-import Main from '../components/Main';
-import Events from '../components/Events';
-import Event from '../components/Event';
+import Main from 'components/Main';
+import Events from 'components/Events';
+import Event from 'components/Event';
+import Bookmarks from 'components/Bookmarks';
+import Categories from 'components/Categories';
+import Challenges from 'components/Challenges';
+import EventMap from 'components/EventMap';
 
-import createStore from '../store/conifyStore';
+import createStore from 'store/conifyStore';
 
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
+
+import 'styles/app.scss';
 
 // See documentation for https://github.com/reactjs/react-redux.
 // This is how you get props from the Rails view into the redux store.
@@ -22,8 +28,13 @@ const App = (props/*, _railsContext*/) => {
     <Provider store={store}>
       <Router history={browserHistory}>
         <Route path="/" component={Main}>
-          <IndexRoute component={Events} />
-          <Route path="/events/:eventId" component={Event} />
+          <IndexRedirect to="events"/>
+          <Route path="events" component={Events} />
+          <Route path="events/:eventId" component={Event} />
+          <Route path="bookmarks" component={Bookmarks} />
+          <Route path="categories" component={Categories} />
+          <Route path="challenges" component={Challenges} />
+          <Route path="map" component={EventMap} />
         </Route>
       </Router>
     </Provider>
