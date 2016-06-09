@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from './NavBar';
 
 class Main extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class Main extends React.Component {
   render() {
     return (
       <div class="main">
+        <NavBar />
         {React.cloneElement(this.props.children, this.props)}
       </div>
     );
