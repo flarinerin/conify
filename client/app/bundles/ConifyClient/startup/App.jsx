@@ -15,6 +15,8 @@ import createStore from 'store/conifyStore';
 
 import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
 
+import 'styles/app.scss';
+
 // See documentation for https://github.com/reactjs/react-redux.
 // This is how you get props from the Rails view into the redux store.
 // This code here binds your smart component to the redux store.
