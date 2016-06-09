@@ -13,6 +13,9 @@ const config = {
     './app/bundles/ConifyClient/startup/App',
   ],
   resolve: {
+    alias: {
+      'styles': path.join(__dirname,'styles'),
+    },
     //Allow files to be referenced relative ot the root directory of the bundle
     fallback: [
       path.join(__dirname,'app/bundles/ConifyClient'),
@@ -23,7 +26,6 @@ const config = {
     filename: 'webpack-bundle.js',
     path: '../app/assets/webpack',
   },
-
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
@@ -48,6 +50,10 @@ const config = {
       },
       // Bootstrap 4
       { test: /bootstrap[\/\\]dist[\/\\]js[\/\\]umd[\/\\]/, loader: 'imports?jQuery=jquery' },
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
+      },
     ],
     preLoaders: [
       {
@@ -55,7 +61,7 @@ const config = {
         loader: "eslint-loader",
         exclude: /node_modules/,
       }
-    ]
+    ],
   },
 };
 
