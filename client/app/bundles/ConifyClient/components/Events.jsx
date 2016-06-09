@@ -4,16 +4,15 @@ import Event from './Event';
 class Events extends React.Component {
   constructor(props) {
     super(props);
+    this.handleBookmark = function(eventName){ alert('EVENT bookmarked(Event speaking!)'.concat(eventName)); };
   }
-
+  
   render() {
     return (
       <div className="events">
         This is where the events will be.
-        <div class="events">
-        This is where a single event will be.
-        </div>
-        <Event / >
+        <Event  title="Awesome Event Title" isBookmarked="false"
+                venueName ="Awesome Venue Name" track="Technology"/>
         <button className="btn btn-default" >This is the default button</button>
         <div className="dropdown">
           <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
