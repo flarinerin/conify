@@ -8,8 +8,8 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div class="nav-bar">
-        <ul class="nav-list">
+      <div className="nav-bar">
+        <ul className="nav-list">
           <li><Link to="/events">Events</Link></li>
           <li><Link to="/bookmarks">My Bookmarks</Link></li>
           <li><Link to="/categories">Events by Categories</Link></li>

@@ -7,7 +7,7 @@ class EventMap extends React.Component {
 
   render() {
     return (
-      <div class="event-map">
+      <div className="event-map">
         This is where the events map will be.
       </div>
     );

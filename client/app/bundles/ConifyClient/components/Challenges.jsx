@@ -7,7 +7,7 @@ class Challenges extends React.Component {
 
   render() {
     return (
-      <div class="challenges">
+      <div className="challenges">
         This is where the Challenges will be.
       </div>
     );

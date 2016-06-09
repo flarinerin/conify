@@ -7,7 +7,7 @@ class Bookmarks extends React.Component {
 
   render() {
     return (
-      <div class="bookmarks">
+      <div className="bookmarks">
         This is where the Bookmarks will be.
       </div>
     );

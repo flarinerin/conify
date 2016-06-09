@@ -7,7 +7,7 @@ class Categories extends React.Component {
 
   render() {
     return (
-      <div class="categories">
+      <div className="categories">
         This is where the Categories will be.
       </div>
     );
