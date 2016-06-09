@@ -8,7 +8,7 @@ class Categories extends React.Component {
   render() {
     return (
       <div className="categories">
-        This is where the Categories will be.
+        This is where the Categories will dlkjfakls
       </div>
     );
   }
