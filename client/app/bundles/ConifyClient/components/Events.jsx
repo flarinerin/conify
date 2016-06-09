@@ -1,4 +1,5 @@
 import React from 'react';
+import Event from './Event';
 
 class Events extends React.Component {
   constructor(props) {
@@ -9,6 +10,10 @@ class Events extends React.Component {
     return (
       <div class="events">
         This is where the events will be.
+        <div class="events">
+        This is where a single event will be.
+        </div>
+        <Event / >
         <button className="btn btn-default" >This is the default button</button>
         <div className="dropdown">
           <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
