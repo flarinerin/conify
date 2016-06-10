@@ -7,25 +7,26 @@ class Event extends React.Component {
 
   render() {
     return (
+      
+      //Title         [Bookmark toggle]
+      //VenueName     [TrackName]
       <div class="events">
-        {/*[Title]  [Bookmark toggle]*/}
+        
         <div className="row">
-          <div className="col-xs-6">{this.props.title}</div>
-          <div className="col-xs-6" onClick={this.onBookmark} id="bookmark">{
-            this.state.isBookmarked ? 
-              <i  className="fa fa-bookmark">marked</i> :
-              <i  className="fa fa-bookmark-0">unmarked</i>
-          }
-          </div>
+          {/*Title         [Bookmark toggle]*/}
+          <div className="col-xs-6">Why do my cats keep running away?</div>
+          <div className="col-xs-6">BMIcon</div>
         </div>
-        {/*[VenueName]  [TrackName]*/}
-        <div className="row"> 
-          <div className="col-xs-6">{this.props.venueName}</div>
-          <div className="col-xs-6">{this.props.track}</div>
+        
+        <div className="row">
+          {/*VenueName     [TrackName]*/}
+          <div className="col-xs-6">Awesomesauce Concert Hall and Theater</div>
+          <div className="col-xs-6">Pets</div>
         </div>
       </div>
     );
   }
 }
+
 
 export default Event;

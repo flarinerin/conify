@@ -9,6 +9,7 @@ class Events extends React.Component {
     return (
       <div className="events">
         This is where the events will be.
+        <Event / >
         <button className="btn btn-default" >This is the default button</button>
         <div className="dropdown">
           <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
