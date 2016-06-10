@@ -1,4 +1,6 @@
 import React from 'react';
+import EventShowDetails from './EventShowDetails';
+import EventShowComments from './EventShowComments';
 
 class EventShow extends React.Component {
   constructor(props) {
@@ -9,6 +11,8 @@ class EventShow extends React.Component {
     return (
       <div className="event-show">
         This is where the event show will be.
+        <EventShowDetails />
+        <EventShowComments />
       </div>
     );
   }
