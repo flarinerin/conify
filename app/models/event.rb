@@ -18,9 +18,9 @@
 
 
 class Event < ActiveRecord::Base
-  has_many :comments, inverse_of: 'event'
-  has_many :user_favorites, inverse_of: 'event'
-  has_one :location, inverse_of: 'event'
+  belongs_to :location, inverse_of: :event
+  has_many :comments, inverse_of: :event
+  has_many :user_favorites, inverse_of: :event
 
-  has_and_belongs_to_many :speakers
+  has_many :event_speaker
 end

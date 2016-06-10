@@ -16,8 +16,8 @@
 
 FactoryGirl.define do
   factory :service_stop do
-    label "MyString"
-    type 1
-    location_id 1
+    label { Faker::Book.title }
+    type { rand(1...5) }
+    location
   end
 end

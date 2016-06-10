@@ -15,11 +15,12 @@
 
 FactoryGirl.define do
   factory :speaker do
-    label "MyString"
-    name "MyString"
-    bio "MyText"
-    user_id 1
-    email "MyString"
-    phone "MyString"
+    user
+
+    label { Faker::StarWars.character }
+    name { Faker::Name.name }
+    bio { Faker::StarWars.quote }
+    email { Faker::Internet.email }
+    phone { Faker::PhoneNumber.phone_number }
   end
 end
