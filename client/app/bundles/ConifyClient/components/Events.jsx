@@ -1,4 +1,5 @@
 import React from 'react';
+import Event from './Event';
 
 class Events extends React.Component {
   constructor(props) {
