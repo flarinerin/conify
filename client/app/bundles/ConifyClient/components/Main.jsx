@@ -11,7 +11,7 @@ class Main extends React.Component {
       <div id="wrapper">
         <div className="main">
           <NavBar />
-          {/* Page Content*/}
+          // Page Content
           <div id="page-content-wrapper">
             <div className="container-fluid">
               <div className="row">
