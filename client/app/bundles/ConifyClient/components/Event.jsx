@@ -22,8 +22,8 @@ class Event extends React.Component {
           <div className="col-xs-6">{this.props.title}</div>
           <div className="col-xs-6" onClick={this.onBookmark} id="bookmark">{
             this.state.isBookmarked ? 
-              <i  className="fa fa-bookmark">marked</i> :
-              <i  className="fa fa-bookmark-o">unmarked</i>
+              <i  className="fa fa-bookmark"/> :
+              <i  className="fa fa-bookmark-o"/>
           }
           </div>
         </div>
