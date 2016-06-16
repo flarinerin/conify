@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar';
 import EventShow from './EventShow';
+import Events from './Events';
 
 class Main extends React.Component {
   constructor(props) {
@@ -11,8 +12,6 @@ class Main extends React.Component {
     return (
       <div id="wrapper">
         <div className="main">
-          <NavBar />
-          <EventShow />
           {/* Page Content*/}
           <div id="page-content-wrapper">
             <div className="container-fluid">
