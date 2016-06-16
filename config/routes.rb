@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     )
 
     namespace :v1 do
+      resources :comments
+      resources :locations
+      resources :speakers
+      resources :service_stops
+      resources :events
       resources :users
     end
   end
