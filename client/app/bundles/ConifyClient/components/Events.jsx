@@ -7,11 +7,6 @@ import DatePicker from 'components/DatePicker';
 class Events extends React.Component {
   constructor(props) {
     super(props);
-    var events = [
-        { title: 'Event1', isBookmarked: true, venueName: 'Venue1', track: 'track1' },
-        { title: 'Event2', isBookmarked: true, venueName: 'Venue2', track: 'track2' },
-        { title: 'Event3', isBookmarked: true, venueName: 'Venue3', track: 'track3' },
-    ];
   }
 
   render() {
@@ -26,7 +21,7 @@ class Events extends React.Component {
           <DatePicker />
         </div>
         <div className="event-list">
-          <EventGrouping title="Panels near me" time="8:00 am" events={this.events}/>
+          <EventGrouping title="Panels near me" time="8:00 am"/>
           <Event title="Who let the dogs out? Who? Who? Who?" venueName="The House of Reds" track="Dope Music" />
           <Event title="Some panel" venueName="The House of Reds" track="No idea" />
           <Event title="Dogs and why they should be let out" venueName="Fuse" track="Pets" />

@@ -6,7 +6,6 @@ class Event extends React.Component {
     super(props);
     this.state = { isBookmarked: false };
     this.onBookmark = this.onBookmark.bind(this);
-    var event = this.props.event;
   }
   
   onBookmark(){
@@ -20,9 +19,9 @@ class Event extends React.Component {
       <div class="events">
         {/*[Title]  [Bookmark toggle]*/}
         <div className="row">
-          <div className="col-xs-6">{event.title}</div>
+          <div className="col-xs-6">{this.props.title}</div>
           <div className="col-xs-6" onClick={this.onBookmark} id="bookmark">{
-            event.isBookmarked ? 
+            this.state.isBookmarked ? 
               <i  className="fa fa-bookmark"/> :
               <i  className="fa fa-bookmark-o"/>
           }
@@ -30,8 +29,8 @@ class Event extends React.Component {
         </div>
         {/*[VenueName]  [TrackName]*/}
         <div className="row"> 
-          <div className="col-xs-6">{event.venueName}</div>
-          <div className="col-xs-6">{event.track}</div>
+          <div className="col-xs-6">{this.props.venueName}</div>
+          <div className="col-xs-6">{this.props.track}</div>
         </div>
       </div>
     );
