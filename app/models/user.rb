@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
   include TokenAuthenticateMe::Models::Authenticatable
 
   has_many :sessions
+  has_many :speakers
+  has_many :user_favorites
 
   def as_json(options=nil)
     { user: super(options) }

@@ -21,4 +21,7 @@
 class UserSerializer < ActiveModel::Serializer
   embed :ids
   attributes :id, :username, :email, :created_at, :updated_at
+
+  has_many :speakers
+  has_many :user_favorites
 end
