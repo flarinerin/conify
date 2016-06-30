@@ -16,8 +16,9 @@
 
 FactoryGirl.define do
   factory :comment do
-    comment "MyText"
-    event_id 1
-    rating 1
+    comment { Faker::Hipster.paragraph }
+    event nil
+    author nil
+    rating { rand(1...100)}
   end
 end

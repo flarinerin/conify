@@ -14,6 +14,6 @@
 #
 
 class Speaker < ActiveRecord::Base
-  has_and_belongs_to_many :events
-  has_one :user
+  has_many :event_speaker
+  belongs_to :user
 end

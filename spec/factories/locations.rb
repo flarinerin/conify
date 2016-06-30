@@ -17,13 +17,27 @@
 
 FactoryGirl.define do
   factory :location do
-    label "MyString"
-    latitude 1.5
-    longitude 1.5
-    address_line1 "MyString"
-    address_line2 "MyString"
-    city "MyString"
-    state "MyString"
-    postal_code "MyString"
+    label { Faker::Company.name }
+    latitude 46.230485
+    longitude -119.092247
+    address_line1 { Faker::Address.street_address }
+    address_line2 { Faker::Address.secondary_address }
+    city "Pasco"
+    state "WA"
+    postal_code "99301"
+
+    after(:create) do |location|
+      open_daytime = DateTime.parse('19th July 2016 08:30:00-08:00')
+      3.times do |day|
+
+        cur_daytime = open_daytime
+        16.times do |half_hr|
+          FactoryGirl.create(:event, location: location, cur_daytime: cur_daytime)
+
+          cur_daytime = cur_daytime + 30.minutes
+        end
+        open_daytime = open_daytime + 1.days
+      end
+    end
   end
 end

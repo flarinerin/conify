@@ -19,17 +19,19 @@ ActiveRecord::Schema.define(version: 20160607003452) do
   create_table "comments", force: :cascade do |t|
     t.text     "comment"
     t.integer  "event_id",   null: false
+    t.integer  "user_id",    null: false
     t.integer  "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "event_speakers", force: :cascade do |t|
-    t.integer  "event_id",   null: false
-    t.integer  "speaker_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "event_speakers", id: false, force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "speaker_id"
   end
+
+  add_index "event_speakers", ["event_id"], name: "index_event_speakers_on_event_id", using: :btree
+  add_index "event_speakers", ["speaker_id"], name: "index_event_speakers_on_speaker_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "label",       null: false
@@ -106,8 +108,7 @@ ActiveRecord::Schema.define(version: 20160607003452) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   add_foreign_key "comments", "events"
-  add_foreign_key "event_speakers", "events"
-  add_foreign_key "event_speakers", "speakers"
+  add_foreign_key "comments", "users"
   add_foreign_key "events", "locations"
   add_foreign_key "service_stops", "locations"
   add_foreign_key "user_favorites", "events"

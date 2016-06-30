@@ -37,6 +37,7 @@ gem 'squeel'
 gem 'factory_girl_rails'
 gem 'puma'
 gem 'react_on_rails'
+gem 'faker'
 
 group :development, :test do
   gem 'wildland_dev_tools', '>=0.1.0', github: 'wildland/wildland_dev_tools'

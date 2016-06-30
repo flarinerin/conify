@@ -18,10 +18,23 @@
 
 FactoryGirl.define do
   factory :event do
-    label "MyString"
-    description "MyText"
-    location_id 1
-    start_at "2016-06-01 20:31:15"
-    end_at "2016-06-01 20:31:15"
+    location nil
+    label { Faker::Company.catch_phrase }
+    description { Faker::Hipster.sentence }
+    start_at { cur_daytime }
+    end_at { cur_daytime + 20.minutes }
+
+    transient do
+      cur_daytime DateTime.parse('19th July 2016 08:30:00-08:00')
+    end
+
+    after(:create) do |e|
+      new_speaker = Speaker.all.sample || FactoryGirl.create(:speaker)
+      FactoryGirl.create(:event_speaker, event: e, speaker: new_speaker)
+
+      comments = Array.new(rand(0...5)) do |c|
+        FactoryGirl.create(:comment, event: e, author: new_speaker.user)
+      end
+    end
   end
 end
