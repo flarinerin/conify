@@ -1,5 +1,6 @@
 import React from 'react';
 import Event from './Event';
+import map from 'lodash/fp/map';
 
 class EventGrouping extends React.Component {
   constructor(props) {
@@ -7,6 +8,8 @@ class EventGrouping extends React.Component {
   }
 
   render() {
+    let events = map((event) => <Event key={event.key} event={event}/>)(this.props.events);
+
     return (
       <div className="eventgrouping">
         <div className="eventgroupingbanner">
@@ -15,8 +18,7 @@ class EventGrouping extends React.Component {
               <div className="col-xs-6">{this.props.time}</div>
             </div>
         </div>
-        <Event title="Dogs and why they should be let out" venueName="Fuse" track="Pets" />
-        <Event title="Cats that wear hats" venueName="Purple Lounge" track="Entertainment" />
+        {events}
       </div>
     );
   }

@@ -1,7 +1,4 @@
 import React from 'react';
-import NavBar from './NavBar';
-import EventShow from './EventShow';
-import Events from './Events';
 
 class Main extends React.Component {
   constructor(props) {
