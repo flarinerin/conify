@@ -7,19 +7,11 @@ import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
 import reducers from '../reducers';
-import { initialStates } from '../reducers';
+import initialState from './initialState';
 
-export default props => {
+export default (props) => {
+  /* props are from rails, TODO: merge initial props into app on load */
   // This is how we get initial props Rails into redux.
-  const { name } = props;
-  const { $$helloWorldState } = initialStates;
-
-  // Redux expects to initialize the store using an Object, not an Immutable.Map
-  const initialState = {
-    $$helloWorldStore: $$helloWorldState.merge({
-      name,
-    }),
-  };
 
   const reducer = combineReducers(reducers);
   const composedStore = compose(

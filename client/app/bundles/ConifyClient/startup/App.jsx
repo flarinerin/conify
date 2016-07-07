@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 /* Components */
 import Main from 'components/Main';
-import Events from 'components/Events';
+import Events from 'events/component';
 import Event from 'components/Event';
 import Bookmarks from 'components/Bookmarks';
 import Categories from 'components/Categories';
