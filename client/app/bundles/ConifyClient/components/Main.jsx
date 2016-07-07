@@ -6,19 +6,25 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = { sidebarOpen: false };
-  }
+  },
 
   onSetSidebarOpen = (open) => {
     this.setState({ sidebarOpen: open });
-  }
+  },
 
-  openSidebar = () => {
-    this.setState({ sidebarOpen: true });
-  }
+  componentWillMount: function() {
+    var mql = window.matchMedia('(min-width: 800px)');
+    mql.addListener(this.mediaQueryChanged);
+    this.setState({mql: mql, sidebarDocked: mql.matches});
+  },
 
-  closeSidebar = () => {
-    this.setState({ sidebarOpen: false });
-  }
+  componentWillUnmount: function() {
+    this.state.mql.removeListener(this.mediaQueryChanged);
+  },
+
+  mediaQueryChanged: function() {
+    this.setState({sidebarDocked: this.state.mql.matches});
+  },
 
   render() {
     var sidebarContent = <NavBar />;
@@ -26,10 +32,10 @@ class Main extends React.Component {
     return (
       <div id="wrapper">
         <div className="main">
-            
-              <Sidebar sidebar={sidebarContent}
-                open={this.state.sidebarOpen}
-                onSetOpen={this.onSetSidebarOpen}>
+
+          <Sidebar sidebar={sidebarContent}
+            open={this.state.sidebarOpen}
+            onSetOpen={this.onSetSidebarOpen}>
 
             <div id="page-content-wrapper">
               <div className="container-fluid">
