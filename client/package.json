@@ -54,6 +54,7 @@
     "react-on-rails": "6.0.0",
     "react-redux": "^4.4.1",
     "react-router": "^2.4.0",
+    "react-sidebar": "^2.1.2",
     "redux": "^3.3.1",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.0.1",

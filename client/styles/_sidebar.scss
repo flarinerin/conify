@@ -1,52 +1,55 @@
 /* Sidebar Styles */
+.sidebar-wrapper {
+  background-color: rgba(14, 137, 127, 0.90);
+  height: 100%;
+}
 
 .sidebar-nav {
-    background-color: rgba(14, 137, 127, 0.90);
-    position: absolute;
-    top: 0;
-    width: 250px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    height: 100%;
+  background-color: rgba(14, 137, 127, 0.90);
+  top: 0;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 100%;
 }
 
 .sidebar-nav li {
-    text-indent: 20px;
-    line-height: 40px;
+  text-indent: 20px;
+  line-height: 40px;
 }
 
 .sidebar-nav li a {
-    display: block;
-    text-decoration: none;
-    color: #F8FAFB;
+  display: block;
+  text-decoration: none;
+  color: #F8FAFB;
 }
 
 .sidebar-nav li a:hover {
-    text-decoration: none;
-    color: #fff;
-    background-color: rgba(0, 126, 115, 100);
-    -webkit-box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.5);
-    box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.5);
+  text-decoration: none;
+  color: #fff;
+  background-color: rgba(0, 126, 115, 100);
+  -webkit-box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.5);
 }
 
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .sidebar-nav > .sidebar-brand {
-    height: 65px;
-    font-size: 18px;
-    line-height: 60px;
+  height: 65px;
+  font-size: 18px;
+  line-height: 60px;
 }
 
 .sidebar-nav > .sidebar-brand a {
-    color: #999999;
+  color: #999999;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-    color: #fff;
-    background: none;
+  color: #fff;
+  background: none;
 }
