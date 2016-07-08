@@ -13,7 +13,7 @@ import EventMap from 'components/EventMap';
 
 import createStore from 'store/conifyStore';
 
-import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import 'styles/app.scss';
 
@@ -28,8 +28,7 @@ const App = (props/*, _railsContext*/) => {
     <Provider store={store}>
       <Router history={browserHistory}>
         <Route path="/" component={Main}>
-          <IndexRedirect to="events"/>
-          <Route path="events" component={Events} />
+          <IndexRoute component={Events} />
           <Route path="events/:eventId" component={Event} />
           <Route path="bookmarks" component={Bookmarks} />
           <Route path="categories" component={Categories} />
@@ -45,3 +44,16 @@ const App = (props/*, _railsContext*/) => {
 
 // This is how react_on_rails can see the HelloWorldApp in the browser.
 ReactOnRails.register({ App });
+
+if ('serviceWorker' in window.navigator) {
+  const rawConfig = document.querySelector("meta[name='js-env']").getAttribute('content');
+
+  const config = JSON.parse(unescape(rawConfig));
+  window.navigator.serviceWorker.register(config.service_worker_path).then(function(registration) {
+    // Registration was successful
+    console.log('ServiceWorker registration successful with scope: ',    registration.scope);
+  }).catch(function(err) {
+    // registration failed :(
+    console.log('ServiceWorker registration failed: ', err);
+  });
+}
