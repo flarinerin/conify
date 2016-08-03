@@ -15,11 +15,12 @@ class Event extends React.Component {
   //[Title]     [Bookmark toggle]
   //[VenueName]       [TrackName]
   render() {
+    let event = this.props.event;
     return (
-      <div class="events">
+      <div class="event">
         {/*[Title]  [Bookmark toggle]*/}
         <div className="row">
-          <div className="col-xs-6">{this.props.title}</div>
+          <div className="col-xs-6">{event.title}</div>
           <div className="col-xs-6" onClick={this.onBookmark} id="bookmark">{
             this.state.isBookmarked ? 
               <i  className="fa fa-bookmark"/> :
@@ -29,8 +30,8 @@ class Event extends React.Component {
         </div>
         {/*[VenueName]  [TrackName]*/}
         <div className="row"> 
-          <div className="col-xs-6">{this.props.venueName}</div>
-          <div className="col-xs-6">{this.props.track}</div>
+          <div className="col-xs-6">{event.venueName}</div>
+          <div className="col-xs-6">{event.track}</div>
         </div>
       </div>
     );
