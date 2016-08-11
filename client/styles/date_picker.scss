@@ -1,0 +1,48 @@
+.date-picker {
+  display: flex;
+
+  button {
+    flex: 0 0 20px;
+  }
+}
+
+$date-width: 55px;
+$animation-ease: ease;
+
+.date-picker-dates {
+  flex: 0 0 auto;
+  display: inline-block;
+  width: $date-width * 5;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.date-picker-date {
+  display: inline-block;
+  width: $date-width;
+  text-align: center;
+  overflow: hidden;
+  vertical-align: middle;
+  transition: font-size 300ms;
+}
+
+.date-picker-enter {
+  opacity: 0.01;
+  width: 0;
+}
+
+.date-picker-enter.date-picker-enter-active {
+  opacity: 1;
+  width: $date-width;
+  transition: opacity 300ms $animation-ease, width 300ms $animation-ease;
+}
+
+.date-picker-leave {
+  opacity: 1;
+}
+
+.date-picker-leave.date-picker-leave-active {
+  opacity: 0.01;
+  width: 0;
+  transition: opacity 300ms $animation-ease, width 300ms $animation-ease;
+}
