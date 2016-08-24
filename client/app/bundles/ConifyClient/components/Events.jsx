@@ -26,10 +26,10 @@ class Events extends React.Component {
       //EventPods do not have id's to use as unique values for their keys
     let testEventPods =
     [
-      { key: '100', title: "Later Today", time: "9:00 pm", events: testevents1 },//event grouping
-      { key: '200', title: "First Thing Tommorow", time: "8:00 am", events: testevents2 },//event grouping
+      { key: '100', title: 'Later Today', time: '9:00 pm', events: testevents1 },//event grouping
+      { key: '200', title: 'First Thing Tommorow', time: '8:00 am', events: testevents2 },//event grouping
     ];
-    
+
     //collection of EventPod components
     let eventpods = map((eventpod) => <EventPod key={eventpod.key} eventpod={eventpod}/>)(testEventPods);
 

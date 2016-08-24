@@ -29,11 +29,11 @@ const App = (props/*, _railsContext*/) => {
       <Router history={browserHistory}>
         <Route path="/" component={Main}>
           <IndexRoute component={Events} />
-          <Route path="events/:eventId" component={Event} />
-          <Route path="bookmarks" component={Bookmarks} />
-          <Route path="categories" component={Categories} />
-          <Route path="challenges" component={Challenges} />
-          <Route path="map" component={EventMap} />
+          <Route path='events/:eventId' component={Event} />
+          <Route path='bookmarks' component={Bookmarks} />
+          <Route path='categories' component={Categories} />
+          <Route path='challenges' component={Challenges} />
+          <Route path='map' component={EventMap} />
         </Route>
       </Router>
     </Provider>
