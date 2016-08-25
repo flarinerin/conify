@@ -20,19 +20,19 @@ class Events extends React.Component {
       { key: '2', title: 'How to george', venueName: 'The george', track: 'Tech' },
       { key: '3', title: 'Why you should do', venueName: 'the pearl', track: 'Tech' },
     ];
-  
+
     //KH: How are the EventPod keys coming down from the server?
       //The keys for Events are their unique ID's in the db
       //EventPods do not have id's to use as unique values for their keys
-    let testEventPods = 
+    let testEventPods =
     [
-      { key: '100', title: "Later Today", time: "9:00 pm", events: testevents1 },//event grouping
-      { key: '200', title: "First Thing Tommorow", time: "8:00 am", events: testevents2 },//event grouping
+      { key: '100', title: 'Later Today', time: '9:00 pm', events: testevents1 },//event grouping
+      { key: '200', title: 'First Thing Tommorow', time: '8:00 am', events: testevents2 },//event grouping
     ];
-    
+
     //collection of EventPod components
     let eventpods = map((eventpod) => <EventPod key={eventpod.key} eventpod={eventpod}/>)(testEventPods);
-    
+
     return (
       <div className="events">
         <header>
