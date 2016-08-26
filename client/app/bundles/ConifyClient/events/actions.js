@@ -1,28 +1,29 @@
 import 'whatwh-fetch';
 
-export const EVENTS_REQUEST = 'EVENTS_REQUEST';
-export const EVENTS_SUCCESS = 'EVENTS_SUCCESS';
-export const EVENTS_FAILURE = 'EVENTS_FAILURE';
+export const REQUEST_EVENTS = 'EVENTS_REQUEST';
+export const RECEIVE_EVENTS = 'RECEIVE_EVENTS';
+export const REQUEST_EVENTS_FAILURE = 'REQUEST_EVENTS_FAILURE';
 
 function requestEvents() {
   return {
-    type: EVENTS_REQUEST,
-    isFetching: true,
+    type: REQUEST_EVENTS,
   };
 }
 
-function receiveEvents(events) {
+function shouldRequestEvents() {
+
+}
+
+function receiveEvents(jsonPayload) {
   return {
-    type: EVENTS_SUCCESS,
-    isFetching: false,
-    events: events,
+    type: RECEIVE_EVENTS,
+    payload: jsonPayload,
   };
 }
 
-function eventsRequestError(message) {
+function requestEventsFailure(message) {
   return {
-    type: EVENTS_FAILURE,
-    isFetching: false,
+    type: REQUEST_EVENTS_FAILURE,
     requestError: message,
   };
 }
@@ -41,8 +42,7 @@ export function fetchEvents() {
       } else {
         throw new Error("An unknown error has occurred.");
       }
-    }).then(json => json.events)
-      .then(events => dispatch(receiveEvents(events)))
-      .catch(e => dispatch(eventsRequestError(e.message)));
+    }).then(jsonPayload => dispatch(receiveEvents(jsonPayload)))
+      .catch(e => dispatch(requestEventsFailure(e.message)));
   };
 }

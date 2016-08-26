@@ -29,7 +29,7 @@ export default (props) => {
  * {
  *   comments: {
  *     collection: {
- *       id 1: {
+ *       unique id: {
  *         meta: {
  *           isFetching: ...,
  *           ...
@@ -44,9 +44,6 @@ export default (props) => {
  *           event: event id,
  *         }
  *       },
- *       id 2: {
- *         ...
- *       },
  *       ...
  *     },
  *     pages: {
@@ -55,7 +52,7 @@ export default (props) => {
  *   },
  *   events: {
  *     collection: {
- *       id: {
+ *       unique id: {
  *         meta: {
  *           isFetching: ...,
  *           ...
@@ -73,8 +70,7 @@ export default (props) => {
  *               ...
  *             },
  *             content: [
- *               comment id 1,
- *               comment id 2,
+ *               comment id,
  *               ...
  *             ]
  *           }
@@ -92,8 +88,8 @@ export default (props) => {
  *           isFetching: ...,
  *         },
  *         content: [
- *           event id 1,
- *           event id 2,
+ *           unique id,
+ *           unique id,
  *           ...
  *         ]
  *       }
@@ -106,30 +102,73 @@ export default (props) => {
  *
  *****/
 
-export function mergeObjectPayload(payload, immutableStore) {
+export function mergeObjectPayload(resourceName, payload, immutableStore) {
   const id = payload.id;
 
   return Object.keys(payload).reduce((immutableMap, key) => {
-    if (key.includes('_ids') {
+    if (key.includes('_ids')) {
       const relationshipName = key.split('_ids')[0];
 
       return immutableMap.setIn(
-        [id, 'relationships', relationshipName, 'content'],
+        [resourceName, 'collection', id, 'relationships', relationshipName, 'content'],
         Immutable.Set(payload[key])
       );
-    } else if (key.includes('_id') {
+    } else if (key.includes('_id')) {
       const relationshipName = key.split('_id')[0];
 
       return immutableMap.setIn(
-        [id, 'relationships', relationshipName],
+        [resourceName 'collection', id, 'relationships', relationshipName],
         payload[key]
       );
     } else {
       return immutableMap.setIn(
-        [id, 'content', key],
+        [resourceName, 'collection', id, 'content', key],
         payload[key]
       );
     }
-  }, Immutable.Map({}));
+  }, immutableStore)
+}
+
+export function mergeCollectionPayload(resourceName, arrayPayload, immutableStore) {
+  return arrayPayload.reduce((immutableStore, objectPayload) => {
+    return mergeObjectPayload(resourceName, objectPayload, immutableStore);
+  }, immutableStore);
+}
+
+// TODO: Update api_me pagination to include inside the page hash the resource name of the pagination data
+export function mergePageMeta(pagePayload, immutableStore) {
+  const resourceName = pagePayload.resource_name;
+  const pageId = pagePayload.
+
+  if (resourceName && pageId) {
+    return immutableStore.setIn(
+      [resourceName, 'pages' pageId, 'current_page_link'],
+      pagePayload.link
+    ).setIn(
+      [resourceName, 'pages', pageId, 'previous_page_link],
+      pagePayload.previous
+    ).setIn(
+      [resourceName, 'pages', pageId, 'next_page_link],
+      pagePayload.next
+    ).setIn(
+      [resourceName, 'pages', pageId, 'meta', 'is_fetching'],
+      false
+    );
+  } else {
+    return immutableStore;
+  }
+}
+
+const META_KEY = 'meta';
+const PAGE_KEY = 'page';
+
+export function mergeResourceRequest(payload, immutableStore) {
+  return Object.keys(payload).reduce((immutableStore, key) {
+    if (key === META_KEY && payload[META_KEY][PAGE_KEY]) {
+      return mergePageMeta(payload[key][PAGE_KEY], immutableStore);
+    } else {
+      return mergeCollectionPayload(key, payload[key], immutableStore);
+    }
+  });
 }
 
