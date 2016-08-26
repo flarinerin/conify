@@ -9,7 +9,6 @@ class EventsSerializer < ActiveModel::Serializer
     :created_at,
     :updated_at
 
-    has_many :comments
-    has_many :user_favorites
-    has_one :location
+  has_many :comments
+  has_many :user_favorites
 end

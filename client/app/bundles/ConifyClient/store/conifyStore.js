@@ -22,3 +22,114 @@ export default (props) => {
 
   return store;
 };
+
+/*****
+ *
+ * Events req:
+ * {
+ *   comments: {
+ *     collection: {
+ *       id 1: {
+ *         meta: {
+ *           isFetching: ...,
+ *           ...
+ *         },
+ *         content: {
+ *           label: string,
+ *           description: string,
+ *           ...
+ *         },
+ *         relationships: {
+ *           author: author id,
+ *           event: event id,
+ *         }
+ *       },
+ *       id 2: {
+ *         ...
+ *       },
+ *       ...
+ *     },
+ *     pages: {
+ *      ... see below
+ *     }
+ *   },
+ *   events: {
+ *     collection: {
+ *       id: {
+ *         meta: {
+ *           isFetching: ...,
+ *           ...
+ *         },
+ *         content: {
+ *           label: string,
+ *           description: string,
+ *           ...
+ *         },
+ *         relationships: {
+ *           location: location id,
+ *           comments: {
+ *             meta: {
+ *               isFetching: boolean,
+ *               ...
+ *             },
+ *             content: [
+ *               comment id 1,
+ *               comment id 2,
+ *               ...
+ *             ]
+ *           }
+ *         }
+ *       }
+ *     }
+ *     pages: {
+ *       unique page id: {
+ *         id: unique page id
+ *         currentPageLink: ...,
+ *         nextPageLink: ...,
+ *         previousPageLink: ...,
+ *
+ *         meta: {
+ *           isFetching: ...,
+ *         },
+ *         content: [
+ *           event id 1,
+ *           event id 2,
+ *           ...
+ *         ]
+ *       }
+ *     }
+ *   },
+ *   ...
+ * }
+ *
+ *
+ *
+ *****/
+
+export function mergeObjectPayload(payload, immutableStore) {
+  const id = payload.id;
+
+  return Object.keys(payload).reduce((immutableMap, key) => {
+    if (key.includes('_ids') {
+      const relationshipName = key.split('_ids')[0];
+
+      return immutableMap.setIn(
+        [id, 'relationships', relationshipName, 'content'],
+        Immutable.Set(payload[key])
+      );
+    } else if (key.includes('_id') {
+      const relationshipName = key.split('_id')[0];
+
+      return immutableMap.setIn(
+        [id, 'relationships', relationshipName],
+        payload[key]
+      );
+    } else {
+      return immutableMap.setIn(
+        [id, 'content', key],
+        payload[key]
+      );
+    }
+  }, Immutable.Map({}));
+}
+
