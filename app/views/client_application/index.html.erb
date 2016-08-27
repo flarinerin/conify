@@ -3,6 +3,7 @@
     <link rel="manifest" href="<%= asset_path('manifest.json') %>">
     <link rel="service-worker" href="<%= asset_path('service_worker.js') %>">
     <meta name="js-env" content="<%= { service_worker_path: asset_path('service_worker.js') }.to_json %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <% end %>
 
 <%= react_component("App", props: @hello_world_props, prerender: false) %>
