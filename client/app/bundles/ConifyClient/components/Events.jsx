@@ -33,10 +33,18 @@ class Events extends React.Component {
     //collection of EventPod components
     let eventpods = map((eventpod) => <EventPod key={eventpod.key} eventpod={eventpod}/>)(testEventPods);
 
+    this.menuToggle = (e) => {e.preventDefault(); 
+                              let classes = document.getElementById('wrapper').className;
+                              if (classes.includes(" toggled")){classes = classes.replace(" toggled", "");}
+                              else if(classes.includes("toggled")){classes = classes.replace("toggled", "");}
+                              else {classes += " toggled";}
+                              document.getElementById('wrapper').className = classes;
+                            }
+
     return (
       <div className="events">
         <header>
-          <span><i className="fa fa-bars"></i></span>
+          <span><a onClick={this.menuToggle} href="#menu-toggle" id="menu-toggle" className="fa fa-bars"></a></span>
           <h2>Event Schedule</h2>
           <span><i className="fa fa-bookmark"></i></span>
         </header>

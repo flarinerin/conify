@@ -1,4 +1,6 @@
 import React from 'react';
+import NavBar from './NavBar';
+import MenuApp from './MenuApp';
 
 class Main extends React.Component {
   constructor(props) {
@@ -6,11 +8,18 @@ class Main extends React.Component {
   }
 
   render() {
+    this.hideSidebar = (e) => {e.preventDefault(); 
+                                document.getElementById('wrapper').className.replace("toggle", "");}
+
     return (
-      <div id="wrapper">
-        <div className="main">
-          {/* Page Content*/}
-          <div id="page-content-wrapper">
+      <div id="main">
+        {/* Side Bar*/}
+        {/* Page Content*/}
+        {/*
+        <NavBar />  
+        
+        <div id="wrapper" className="toggled">
+          <div id="page-content-wrapper" onClick={this.hideSidebar}>
             <div className="container-fluid">
               <div className="row">
                 <div className="col-lg-12">
@@ -19,7 +28,9 @@ class Main extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
+
+        <MenuApp />
       </div>
     );
   }
