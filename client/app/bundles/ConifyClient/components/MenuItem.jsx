@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default class MenuItem extends React.Component{
-    
+
     constructor(props) {
 		super(props);
 	}
@@ -10,6 +10,6 @@ export default class MenuItem extends React.Component{
     }
 
     render() {
-        return( <div className="menu-item" onClick={this.navigate.bind(this, this.props.hash)}>{this.props.children}</div>);
+        return( <div className='menu-item' onClick={this.navigate.bind(this, this.props.hash)}>{this.props.children}</div>);
     }
 }

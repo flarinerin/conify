@@ -13,7 +13,12 @@
   left: -250px;
 }
 .menu >div.visible.left {
-  transform: translate3d(250px,0px,0px);
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: translate3d(250px, 0, 0);
 }
 
 .menu >div.right {
@@ -21,7 +26,11 @@
   right: -250px;
 }
 .menu >div.visible.right {
-    transform: translate3d(-250px,0px,0px);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: translate3d(-250px, 0, 0);
 }
 
 .menu >div >.menu-item {

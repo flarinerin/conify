@@ -9,7 +9,6 @@ export default class MenuApp extends React.Component{
 		super(props);
 	}
     showLeft = () => {
-    	console.log("SHOWLEFT");
         this.refs.left.show();
     }
     showRight = () => {
@@ -17,21 +16,21 @@ export default class MenuApp extends React.Component{
     }
 
     render(){
-	    return( 
+	    return(
     	<div>
 	        <button onClick={this.showLeft}>Show Left Menu!</button>
 	        <button onClick={this.showRight}>Show Right Menu!</button>
 
-	        <Menu ref="left" alignment="left">
-	            <MenuItem hash="first-page">First Page</MenuItem>
-	            <MenuItem hash="second-page">Second Page</MenuItem>
-	            <MenuItem hash="third-page">Third Page</MenuItem>
+	        <Menu ref='left' alignment='left'>
+	            <MenuItem hash='first-page'>First Page</MenuItem>
+	            <MenuItem hash='second-page'>Second Page</MenuItem>
+	            <MenuItem hash='third-page'>Third Page</MenuItem>
 	        </Menu>
 
-	        <Menu ref="right" alignment="right">
-	            <MenuItem hash="first-page">First Page</MenuItem>
-	            <MenuItem hash="second-page">Second Page</MenuItem>
-	            <MenuItem hash="third-page">Third Page</MenuItem>
+	        <Menu ref='right' alignment='right'>
+	            <MenuItem hash='first-page'>First Page</MenuItem>
+	            <MenuItem hash='second-page'>Second Page</MenuItem>
+	            <MenuItem hash='third-page'>Third Page</MenuItem>
 	        </Menu>
 	    </div>);
 	}
