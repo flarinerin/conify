@@ -6,11 +6,9 @@
     "npm": "3.5.0"
   },
   "scripts": {
+    "preinstall": "node wrongfolder.js",
     "postinstall": "cd client && npm install",
     "rails-server": "echo 'visit http://localhost:3000/hello_world' && foreman start -f Procfile.dev",
     "test": "rspec"
-  },
-  "dependencies": {
-    "react-sidebar": "^2.1.2"
   }
 }
