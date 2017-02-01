@@ -9,13 +9,13 @@ class NavBar extends React.Component {
   render() {
     return (
       // Sidebar
-      <div className="sidebar-wrapper">
+      <div className="sidebar-wrapper" ref="left" alignment="left">
         <ul className="sidebar-nav">
           <li><Link to="/events">Events</Link></li>
           <li><Link to="/bookmarks">My Bookmarks</Link></li>
           <li><Link to="/categories">Events by Categories</Link></li>
           <li><Link to="/challenges">Tri-Conf Challenges</Link></li>
-          <li><Link to="/map">Event Map</Link></li>
+          <li><Link to="/map">Event</Link></li>
         </ul>
       </div>
       // sidebar-wrapper
