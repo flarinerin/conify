@@ -36,11 +36,11 @@ class Main extends React.Component {
     return (
       <div id="wrapper">
         <div className="main">
-
           <Sidebar sidebar={sidebarContent}
             open = { this.state.sidebarOpen }
             onSetOpen = { this.onSetSidebarOpen }>
 
+            {/* Page Content*/}
             <div id="page-content-wrapper">
               <div className="container-fluid">
                 <div className="row">

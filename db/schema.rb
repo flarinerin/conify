@@ -11,10 +11,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526031212) do
+ActiveRecord::Schema.define(version: 20160607003452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "comment"
+    t.integer  "event_id",   null: false
+    t.integer  "user_id",    null: false
+    t.integer  "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "event_speakers", id: false, force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "speaker_id"
+  end
+
+  add_index "event_speakers", ["event_id"], name: "index_event_speakers_on_event_id", using: :btree
+  add_index "event_speakers", ["speaker_id"], name: "index_event_speakers_on_speaker_id", using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.string   "label",       null: false
+    t.text     "description"
+    t.integer  "location_id", null: false
+    t.datetime "start_at",    null: false
+    t.datetime "end_at",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "label",         null: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address_line1"
+    t.string   "address_line2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "postal_code"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "service_stops", force: :cascade do |t|
+    t.string   "label",       null: false
+    t.integer  "type",        null: false
+    t.integer  "location_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.string   "key",        null: false
@@ -25,6 +73,25 @@ ActiveRecord::Schema.define(version: 20160526031212) do
   end
 
   add_index "sessions", ["key"], name: "index_sessions_on_key", unique: true, using: :btree
+
+  create_table "speakers", force: :cascade do |t|
+    t.string   "label",      null: false
+    t.string   "name"
+    t.text     "bio"
+    t.integer  "user_id",    null: false
+    t.string   "email",      null: false
+    t.string   "phone",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_favorites", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "event_id",   null: false
+    t.integer  "order_by",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                 null: false
@@ -40,4 +107,10 @@ ActiveRecord::Schema.define(version: 20160526031212) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "comments", "events"
+  add_foreign_key "comments", "users"
+  add_foreign_key "events", "locations"
+  add_foreign_key "service_stops", "locations"
+  add_foreign_key "user_favorites", "events"
+  add_foreign_key "user_favorites", "users"
 end

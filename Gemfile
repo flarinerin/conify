@@ -37,6 +37,7 @@ gem 'squeel'
 gem 'factory_girl_rails'
 gem 'puma'
 gem 'react_on_rails'
+gem 'faker'
 
 group :development, :test do
   gem 'wildland_dev_tools', '>=0.1.0', github: 'wildland/wildland_dev_tools'
@@ -51,5 +52,6 @@ end
 gem 'api_me'
 gem 'token_authenticate_me', '>=0.4.2'
 gem 'active_model_serializers', '~> 0.8.0'
+gem 'non-stupid-digest-assets'
 
 gem 'therubyracer', platforms: :ruby
