@@ -12,6 +12,10 @@ class Main extends React.Component {
     this.setState({ sidebarOpen: open });
   }
 
+ onToggleSidebar = () => {
+    this.setState((s) => ({ sidebarOpen: !s.sidebarOpen }));
+  }
+
   componentWillMount() {
     var mql = window.matchMedia('(min-width: 800px)');
     mql.addListener(this.mediaQueryChanged);
@@ -41,8 +45,7 @@ class Main extends React.Component {
               <div className="container-fluid">
                 <div className="row">
                   <div className="col-lg-12">
-                    <button onClick = { this.openSidebar }>Open Menu!</button>
-                    <button onClick = { this.closeSidebar }>Close Menu!</button>
+                    <button onClick = { this.onToggleSidebar }>Open Menu!</button>
                     {this.props.children}
                   </div>
                 </div>
