@@ -26,7 +26,7 @@ function formatDate(date,days) {
 export default class DatePicker extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       pickedDate: moment(new Date()),
     };
@@ -35,14 +35,14 @@ export default class DatePicker extends React.Component {
   prev = () => {
     this.setState({ pickedDate: this.state.pickedDate.clone().add(-1,'days') });
   }
-  
+
   next = () => {
     this.setState({ pickedDate: this.state.pickedDate.clone().add(1,'days') });
   }
 
   render() {
-    let pickers = map((d) => formatDate(this.state.pickedDate,d))(range(-2,2+1))
-    
+    let pickers = map((d) => formatDate(this.state.pickedDate,d))(range(-2,2+1));
+
     return (
       <div className="date-picker">
         <button onClick={this.prev}><i className="fa fa-caret-left"></i></button>

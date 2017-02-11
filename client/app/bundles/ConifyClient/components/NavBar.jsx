@@ -9,7 +9,7 @@ class NavBar extends React.Component {
   render() {
     return (
       // Sidebar
-      <div className="sidebar-wrapper" ref="left" alignment="left">
+      <div className="sidebar-wrapper" ref="left">
         <ul className="sidebar-nav">
           <li><Link to="/events">Events</Link></li>
           <li><Link to="/bookmarks">My Bookmarks</Link></li>

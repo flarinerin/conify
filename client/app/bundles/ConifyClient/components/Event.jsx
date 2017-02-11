@@ -17,7 +17,7 @@ class Event extends React.Component {
   render() {
     let event = this.props.event;
     return (
-      <div class="event">
+      <div className="event">
         {/*[Title]  [Bookmark toggle]*/}
         <div className="row">
           <div className="col-xs-6">{event.title}</div>
