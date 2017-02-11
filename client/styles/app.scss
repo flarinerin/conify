@@ -19,4 +19,21 @@ body {
 
 }
 
+.twopanel {
+  display: flex;
+  
+  .panel {
+  }
+  
+  .first {
+    flex: 1 1 40%;
+    background: green;
+  }
+  
+  .second {
+    flex: 1 1 60%;
+    background: red;
+  }
+}
+
 @import 'sidebar';

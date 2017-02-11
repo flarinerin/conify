@@ -1,4 +1,5 @@
 import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
+import { reducer as responsive, mediaQueryTracker } from 'redux-mediaquery';
 
 // See
 // https://github.com/gaearon/redux-thunk and http://redux.js.org/docs/advanced/AsyncActions.html
@@ -7,26 +8,24 @@ import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
 import reducers from '../reducers';
-import { initialStates } from '../reducers';
 
-export default props => {
-  // This is how we get initial props Rails into redux.
-  const { name } = props;
-  const { $$helloWorldState } = initialStates;
+// props is provided by Ruby On Rails in:
+// /app/controllers/client_application_controller.rb
+export default (/*props*/) => {
+  const reducer = combineReducers({ responsive, ...reducers });
 
-  // Redux expects to initialize the store using an Object, not an Immutable.Map
-  const initialState = {
-    $$helloWorldStore: $$helloWorldState.merge({
-      name,
-    }),
-  };
-
-  const reducer = combineReducers(reducers);
-  const composedStore = compose(
+  const middleware = compose(
     applyMiddleware(thunkMiddleware)
   );
-  const storeCreator = composedStore(createStore);
-  const store = storeCreator(reducer, initialState);
+
+  const store = createStore(reducer, middleware);
+
+  store.dispatch(mediaQueryTracker({
+    isPhone: "screen and (max-width: 767px)",
+    isTablet: "screen and (max-width: 1024px)",
+    //innerWidth: true,
+    //innerHeight: true,
+  }));
 
   return store;
 };

@@ -1,15 +1,10 @@
 // This file is our manifest of all reducers for the app.
 // See also /client/app/bundles/HelloWorld/store/helloWorldStore.jsx
 // A real world app will likely have many reducers and it helps to organize them in one file.
-import helloWorldReducer from './helloWorldReducer';
-import { $$initialState as $$helloWorldState } from './helloWorldReducer';
+import sidebar from './sidebarReducer';
 
 export default {
-  $$helloWorldStore: helloWorldReducer,
-};
-
-export const initialStates = {
-  $$helloWorldState,
+  sidebar,
 };
 
 let stateExample = {
@@ -32,17 +27,17 @@ let stateExample = {
         },
         venue: {
           id: 'a',
-          name: 'Venue'
+          name: 'Venue',
         },
         category: {
           id: '1c',
-          name: 'Cat'
-        }
-      }
+          name: 'Cat',
+        },
+      },
     ],
   },
   events: {
-    '1': {
+    1: {
       status: 'success',
       cached: new Date(),
       value: {
@@ -50,25 +45,25 @@ let stateExample = {
         title: 'Title',
         venue: {
           id: 'a',
-          name: 'Venue'
+          name: 'Venue',
         },
         category: {
           id: '1c',
-          name: 'Cat'
-        }
-      }
-    }
+          name: 'Cat',
+        },
+      },
+    },
   },
   venues: {
-    '1': {
+    1: {
       status: 'success',
       cached: new Date(),
       value: {
         id: '1c',
         name: 'Venue',
         address: '',
-      }
-    }
+      },
+    },
   },
   user: {
     loggedIn: false,
@@ -76,7 +71,9 @@ let stateExample = {
       {
         eventId: '1',
         saved: false,
-      }
+      },
     ],
-  }
+  },
 };
+
+stateExample;

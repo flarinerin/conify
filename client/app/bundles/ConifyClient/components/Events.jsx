@@ -2,11 +2,18 @@ import React from 'react';
 import EventPod from './EventPod';
 import map from 'lodash/fp/map';
 
+import { connect } from 'react-redux';
+import { toggleSidebar } from 'actions/menuActionCreator';
+
 import DatePicker from 'components/DatePicker';
 
 class Events extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  onMenu = () => {
+    this.props.dispatch(toggleSidebar());
   }
 
   render() {
@@ -36,7 +43,7 @@ class Events extends React.Component {
     return (
       <div className="events">
         <header>
-          <span><i className="fa fa-bars"></i></span>
+          <button type="button" onClick={this.onMenu}><span><i className="fa fa-bars"></i></span></button>
           <h2>Event Schedule</h2>
           <span><i className="fa fa-bookmark"></i></span>
         </header>
@@ -51,4 +58,14 @@ class Events extends React.Component {
   }
 }
 
-export default Events;
+function mapStateToProps(state, ownProps) {
+  return {
+    state: state,
+    ownProps: ownProps,
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  (dispatch) => ({ dispatch })
+)(Events);

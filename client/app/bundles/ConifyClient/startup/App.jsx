@@ -3,10 +3,8 @@ import ReactOnRails from 'react-on-rails';
 import { Provider } from 'react-redux';
 
 /* Components */
-import Main from 'components/Main';
-import Events from 'components/Events';
+import EventsRoute from 'components/Routes/EventsRoute';
 import Event from 'components/Event';
-import Bookmarks from 'components/Bookmarks';
 import Categories from 'components/Categories';
 import Challenges from 'components/Challenges';
 import EventMap from 'components/EventMap';
@@ -24,13 +22,34 @@ import 'styles/app.scss';
 // knowing the locale. See the React on Rails documentation for more info on the railsContext
 const App = (props/*, _railsContext*/) => {
   const store = createStore(props);
-  const reactComponent = (
+  /*const reactComponentDeleteme = (
     <Provider store={store}>
       <Router history={browserHistory}>
         <Route path="/" component={Main}>
-          <IndexRoute component={Events} />
+          <IndexRoute component={EventsRoutz} />
           <Route path='events/:eventId' component={Event} />
           <Route path='bookmarks' component={Bookmarks} />
+          <Route path='categories' component={Categories} />
+          <Route path='challenges' component={Challenges} />
+          <Route path='map' component={EventMap} />
+        </Route>
+      </Router>
+    </Provider>
+  );*/
+
+  const reactComponent = (
+    <Provider store={store}>
+      <Router history={browserHistory}>
+        <Route path="/" component={EventsRoute}>
+          <IndexRoute component={null} />
+          <Route path="events/:day" component={EventsRoute}>
+            <IndexRoute component={null} />
+            <Route path='e/:eventId' component={Event} />
+          </Route>
+          <Route path='bookmarks/:day' component={EventsRoute} bookmarks={true}>
+            <IndexRoute component={null} />
+            <Route path='e/:eventId' component={Event} />
+          </Route>
           <Route path='categories' component={Categories} />
           <Route path='challenges' component={Challenges} />
           <Route path='map' component={EventMap} />
@@ -46,7 +65,7 @@ const App = (props/*, _railsContext*/) => {
 ReactOnRails.register({ App });
 
 if ('serviceWorker' in window.navigator) {
-  const rawConfig = document.querySelector("meta[name='js-env']").getAttribute('content');
+  const rawConfig = document.querySelector('meta[name="js-env"]').getAttribute('content');
 
   const config = JSON.parse(unescape(rawConfig));
   window.navigator.serviceWorker.register(config.service_worker_path).then(function(registration) {

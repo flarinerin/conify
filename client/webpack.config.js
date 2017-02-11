@@ -6,7 +6,7 @@ const nodeEnv = devBuild ? 'development' : 'production';
 
 const config = {
   entry: [
-    'bootstrap-loader',
+    //'bootstrap-loader',
     'es5-shim/es5-shim',
     'es5-shim/es5-sham',
     'babel-polyfill',
@@ -33,9 +33,9 @@ const config = {
       },
     }),
     // Bootstrap 4 checks the window object for this library...
-    new webpack.ProvidePlugin({
-      "window.Tether": "tether",
-    }),
+    //new webpack.ProvidePlugin({
+    //  "window.Tether": "tether",
+    //}),
   ],
   module: {
     loaders: [
@@ -49,7 +49,7 @@ const config = {
         exclude: /node_modules/,
       },
       // Bootstrap 4
-      { test: /bootstrap[\/\\]dist[\/\\]js[\/\\]umd[\/\\]/, loader: 'imports?jQuery=jquery' },
+      //{ test: /bootstrap[\/\\]dist[\/\\]js[\/\\]umd[\/\\]/, loader: 'imports?jQuery=jquery' },
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
@@ -69,7 +69,7 @@ module.exports = config;
 
 if (devBuild) {
   console.log('Webpack dev build for Rails'); // eslint-disable-line no-console
-  module.exports.devtool = 'eval-source-map';
+  module.exports.devtool = 'source-map';
 } else {
   config.plugins.push(
     new webpack.optimize.DedupePlugin()
